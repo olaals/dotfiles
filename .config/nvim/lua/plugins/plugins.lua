@@ -10,20 +10,8 @@
 -- * override the configuration of LazyVim plugins
 return {
   --{"github/copilot.vim"},
-  {"carlsmedstad/vim-bicep"},
   { "ellisonleao/gruvbox.nvim" },
-  {
-    "TobinPalmer/pastify.nvim",
-    cmd = "Pastify",
-    lazy = true,
-    config = function()
-      require("pastify").setup({
-        opts = {
-          local_path = "/assets/images", 
-        },
-      })
-    end,
-  },
+  { "numToStr/Comment.nvim", config = function() require("Comment").setup() end },
   {
     "LazyVim/LazyVim",
     opts = {
