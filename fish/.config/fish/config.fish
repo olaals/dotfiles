@@ -19,6 +19,11 @@ alias ca="conda activate"
 alias l="ls -1"
 alias sl="ls -1"
 #alias ls="ls -1"
+#
+git config --global alias.lg "log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate=full"
+
+alias k="kubectl"
+set -gx PATH "$HOME/.cargo/bin" $PATH
 
 bind \cj accept-autosuggestion
 

@@ -13,6 +13,14 @@ set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
 
+vim.api.nvim_create_user_command("CC", function(args)
+  vim.cmd("CopilotChat " .. args.args)
+end, { nargs = "*" })
+
+vim.api.nvim_create_user_command("CCR", function(args)
+  vim.cmd("CopilotChatReset " .. args.args)
+end, { nargs = "*" })
+
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
