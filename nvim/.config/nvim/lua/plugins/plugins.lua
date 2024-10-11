@@ -30,5 +30,6 @@ return {
       debug = true, -- Enable debugging
       -- See Configuration section for rest
     }
-  }
+  },
+    { "Hoffs/omnisharp-extended-lsp.nvim", lazy = true }
 }
