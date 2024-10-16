@@ -12,5 +12,16 @@ set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
 
+vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<leader>fg", ":Telescope live_grep<CR>", { noremap = true, silent = true })
+
+-- Open new window to the (left, down, up and right)
+vim.api.nvim_set_keymap("n", "<leader>wnj", ":leftabove vsplit<CR>:enew<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>wnd", ":belowright split<CR>:enew<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>wnk", ":aboveleft split<CR>:enew<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>wnl", ":rightbelow vsplit<CR>:enew<CR>", { noremap = true, silent = true })
+
 require("config.copilot")
 require("config.copilotchat")

@@ -19,6 +19,29 @@ vim.api.nvim_create_user_command("CC", function(args)
   -- todo: clear selection buffer
 end, { range = true, nargs = "*" })
 
+vim.api.nvim_create_user_command("CCF", function(args)
+  local win_id = vim.api.nvim_get_current_win()
+
+  -- Get the entire content of the current buffer
+  local buffer_content = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+  local joined_text = table.concat(buffer_content, "\n") -- Join all lines with newline
+
+  chat.ask(joined_text .. "\n\n My prompt: \n" .. args.args) -- Concatenate with args.args
+  vim.api.nvim_set_current_win(win_id)
+end, { nargs = "*" })
+
 vim.api.nvim_create_user_command("CCR", function(args)
   vim.cmd("CopilotChatReset " .. args.args)
+end, { nargs = "*" })
+
+vim.api.nvim_create_user_command("CCC", function(args)
+  vim.cmd("CopilotChatClose " .. args.args)
+end, { nargs = "*" })
+
+vim.api.nvim_create_user_command("CCO", function(args)
+  vim.cmd("CopilotChatOpen " .. args.args)
+end, { nargs = "*" })
+
+vim.api.nvim_create_user_command("CCT", function(args)
+  vim.cmd("CopilotChatToggle " .. args.args)
 end, { nargs = "*" })
