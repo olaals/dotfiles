@@ -8,6 +8,10 @@ set -gx PATH $PATH /Users/OALST/projects/cli-tools
 set -gx PATH /opt/homebrew/opt/node@16/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 
+set -gx PATH $HOME/.goenv/bin $PATH
+
+
+status --is-interactive; and source (goenv init - | psub)
 
 # Aliases
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
