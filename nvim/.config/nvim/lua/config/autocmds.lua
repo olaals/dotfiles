@@ -33,3 +33,9 @@ vim.cmd("command! J lua run_script()")
 vim.cmd("command! T lua run_tests()")
 -- vim.api.nvim_command("autocmd FileType python nnoremap :J :!python3 %<CR>")
 -- vim.api.nvim_command("autocmd FileType typescript nnoremap :J :!tsc --outdir tscbuild && node tscbuild/index.js %<CR>")
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt.conceallevel = 0 -- Ensure code block markers are visible
+  end,
+})

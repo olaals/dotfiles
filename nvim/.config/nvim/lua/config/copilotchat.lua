@@ -26,7 +26,13 @@ vim.api.nvim_create_user_command("CCF", function(args)
   local buffer_content = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   local joined_text = table.concat(buffer_content, "\n") -- Join all lines with newline
 
-  chat.ask(joined_text .. "\n\n My prompt: \n" .. args.args) -- Concatenate with args.args
+  -- Check if args.args is empty and set default prompt if it is
+  local prompt = args.args
+  if prompt == "" then
+    prompt = "Only answer with ok"
+  end
+
+  chat.ask(joined_text .. "\n\n My prompt: \n" .. prompt) -- Concatenate with prompt
   vim.api.nvim_set_current_win(win_id)
 end, { nargs = "*" })
 
