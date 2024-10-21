@@ -4,7 +4,7 @@ end
 
 # Setting PATH
 set -gx PATH $HOME/bin /usr/local/bin $PATH
-set -gx PATH $PATH /Users/OALST/projects/cli-tools
+set -gx PATH $PATH $HOME/projects/cli-tools
 set -gx PATH /opt/homebrew/opt/node@16/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 
