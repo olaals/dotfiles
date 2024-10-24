@@ -33,9 +33,27 @@ vim.cmd("command! J lua run_script()")
 vim.cmd("command! T lua run_tests()")
 -- vim.api.nvim_command("autocmd FileType python nnoremap :J :!python3 %<CR>")
 -- vim.api.nvim_command("autocmd FileType typescript nnoremap :J :!tsc --outdir tscbuild && node tscbuild/index.js %<CR>")
+
+local set = vim.opt
+set.tabstop = 4
+set.softtabstop = 4
+set.shiftwidth = 4
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     vim.opt.conceallevel = 0 -- Ensure code block markers are visible
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "yaml",
+  callback = function()
+    vim.bo.shiftwidth = 2 -- Number of spaces per indentation level
+    vim.bo.tabstop = 2 -- Number of spaces per Tab
+    vim.bo.expandtab = true -- Use spaces instead of tabs
+    vim.bo.softtabstop = 2 -- Inserts 2 spaces when you press Tab
+    vim.bo.smartindent = true -- Makes indentation smarter
+    vim.bo.autoindent = true -- Auto-indent new lines
   end,
 })

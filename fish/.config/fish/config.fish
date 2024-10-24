@@ -13,6 +13,7 @@ set -gx PATH $HOME/.goenv/bin $PATH
 
 status --is-interactive; and source (goenv init - | psub)
 
+
 # Aliases
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 alias devc="/Users/OALST/projects/nvim-devc/devc"
@@ -23,6 +24,9 @@ alias ca="conda activate"
 alias l="ls -1"
 alias sl="ls -1"
 #alias ls="ls -1"
+if test (uname) = Darwin # MAC OS
+    alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+end
 #
 git config --global alias.lg "log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate=full"
 

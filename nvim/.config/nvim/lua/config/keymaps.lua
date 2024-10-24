@@ -7,10 +7,6 @@ vim.g.mapleader = " "
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = True })
 -- vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-local set = vim.opt
-set.tabstop = 4
-set.softtabstop = 4
-set.shiftwidth = 4
 
 vim.api.nvim_set_keymap("n", "<Tab>", ":bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-Tab>", ":bprevious<CR>", { noremap = true, silent = true })
