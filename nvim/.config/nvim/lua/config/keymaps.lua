@@ -21,3 +21,21 @@ vim.api.nvim_set_keymap("n", "<leader>wnl", ":rightbelow vsplit<CR>:enew<CR>", {
 
 require("config.copilot")
 require("config.copilotchat")
+
+vim.api.nvim_set_keymap("n", "<leader>ce", ":lua CopyLintError()<CR>", { noremap = true, silent = true })
+
+function CopyLintError()
+  local diagnostics = vim.diagnostic.get()
+  local current_line = vim.api.nvim_win_get_cursor(0)[1] - 1
+  local current_col = vim.api.nvim_win_get_cursor(0)[2]
+
+  for _, diag in ipairs(diagnostics) do
+    if diag.lnum == current_line and diag.col <= current_col then
+      vim.fn.setreg("+", diag.message) -- Copies to the system clipboard
+      print("Copied error to clipboard: " .. diag.message)
+      return
+    end
+  end
+
+  print("No error found at cursor position.")
+end
