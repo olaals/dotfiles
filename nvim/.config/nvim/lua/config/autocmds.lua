@@ -57,3 +57,39 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.autoindent = true -- Auto-indent new lines
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePre" }, {
+  pattern = "*",
+  callback = function()
+    vim.opt.fileformat = "unix"
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    -- Replace carriage return characters with an empty string
+    vim.api.nvim_buf_set_lines(
+      0,
+      0,
+      -1,
+      false,
+      vim.split(vim.fn.join(vim.fn.getline(1, "$"), "\n"):gsub("\r", ""), "\n")
+    )
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.py",
+  callback = function()
+    local black_exists = vim.fn.executable("black") == 1
+
+    if black_exists then
+      vim.cmd("silent !black %")
+    else
+      vim.cmd("silent !uvx black %")
+    end
+
+    vim.cmd("edit")
+  end,
+})

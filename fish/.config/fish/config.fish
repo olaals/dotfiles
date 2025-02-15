@@ -1,6 +1,12 @@
 if status is-interactive
 end
 
+set -gx ENVIRONMENT Development
+set -gx FISH_PROFILE default
+
+source ./profiles/default.fish
+set_profile
+
 
 # Setting PATH
 set -gx PATH $HOME/bin /usr/local/bin $PATH
@@ -11,10 +17,14 @@ set -gx PATH /opt/homebrew/bin $PATH
 set -gx PATH $HOME/.goenv/bin $PATH
 
 
+
 status --is-interactive; and source (goenv init - | psub)
+
+alias azlogin="env BROWSER='/Applications/Safari.app/Contents/MacOS/Safari' az login"
 
 
 # Aliases
+alias sp='switch_profile'
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 alias devc="/Users/OALST/projects/nvim-devc/devc"
 alias marktext="open -a 'MarkText'"
@@ -49,36 +59,6 @@ set -Ux LSCOLORS Exfxcxdxbxegedabagacad
 
 
 
-function fish_prompt
-    # Display username and hostname in cyan
-    set_color blue
-    echo -n (whoami)@(hostname)
-    set_color normal
-
-    # Display full path in blue
-    set_color yellow
-    echo -n " " (pwd)
-    set_color normal
-
-
-    set -l git_branch (git branch --show-current 2>/dev/null)
-    if test -n "$git_branch"
-        set_color magenta
-        echo -n " " "($git_branch)" " "
-    end
-
-    # New line
-    echo
-
-    # Display only the current directory in green
-    set_color cyan
-    echo -n (basename (pwd))
-    set_color normal
-    echo " "
-
-    # Display Git branch in red if in a Git repository
-
-end
 
 
 
@@ -92,5 +72,3 @@ end
 # <<< conda initialize <<<
 #
 #
-
-ca py311

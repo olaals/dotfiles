@@ -87,7 +87,8 @@ return {
       "rust",
       "c_sharp",
       "cpp",
-      "go"
+      "go",
+      "usd"
     },
     incremental_selection = {
       enable = true,
