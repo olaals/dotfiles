@@ -5,8 +5,6 @@ set -gx ENVIRONMENT Development
 set -gx FISH_PROFILE default
 
 source ./profiles/default.fish
-set_profile
-
 
 # Setting PATH
 set -gx PATH $HOME/bin /usr/local/bin $PATH
