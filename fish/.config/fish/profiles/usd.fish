@@ -1,7 +1,6 @@
-# USD Profile Settings
 function set_profile
-    set -gx PYTHONPATH "/Users/OALST/Installs/OpenUSD/lib/python"
-    set -gx PATH "$PATH:/Users/OALST/Installs/OpenUSD/bin"
+    set -gx PYTHONPATH /Users/OALST/Installs/OpenUSD/lib/python
+    set -gx PATH "/Users/OALST/Installs/OpenUSD/bin:$PATH"
     echo "USD profile applied"
 end
 

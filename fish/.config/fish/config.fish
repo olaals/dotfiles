@@ -4,9 +4,7 @@ end
 set -gx ENVIRONMENT Development
 set -gx FISH_PROFILE default
 
-source ./profiles/default.fish
-set_profile
-
+source $HOME/.config/fish/profiles/default.fish
 
 # Setting PATH
 set -gx PATH $HOME/bin /usr/local/bin $PATH
@@ -24,6 +22,7 @@ alias azlogin="env BROWSER='/Applications/Safari.app/Contents/MacOS/Safari' az l
 
 
 # Aliases
+alias openvpn='/opt/homebrew/opt/openvpn/sbin/openvpn'
 alias sp='switch_profile'
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 alias devc="/Users/OALST/projects/nvim-devc/devc"
