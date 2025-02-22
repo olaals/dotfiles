@@ -74,7 +74,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.quac = {
+  users.users.quack = {
     isNormalUser = true;
     description = "quack";
     extraGroups = [ "networkmanager" "wheel" ];
