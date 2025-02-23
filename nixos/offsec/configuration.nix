@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+  };
 
   imports =
     [ 
@@ -78,6 +81,7 @@
     chromium
     uv
     python313
+    nodejs_22
     stow
     john
     sqlmap
@@ -92,6 +96,7 @@
     xclip
     fish
     gobuster
+    samba # smbclient
     feh # bg image
   ];
 
