@@ -13,12 +13,6 @@ set -gx PATH $PATH $HOME/cli-tools
 set -gx PATH /opt/homebrew/opt/node@16/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 
-set -gx PATH $HOME/.goenv/bin $PATH
-
-
-
-status --is-interactive; and source (goenv init - | psub)
-
 alias azlogin="env BROWSER='/Applications/Safari.app/Contents/MacOS/Safari' az login"
 
 
