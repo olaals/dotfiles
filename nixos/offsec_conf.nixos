@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+
   imports =
     [ 
       ./hardware-configuration.nix
@@ -51,6 +52,7 @@
     IBUS_ENABLE_SYNC_MODE = "1";
   };
 
+
   users.users.quack = {
     isNormalUser = true;
     description = "quack";
@@ -64,6 +66,7 @@
 
   programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
+
 
   environment.systemPackages = with pkgs; [
     vim
@@ -87,6 +90,9 @@
     awscli
     tcpdump
     xclip
+    fish
+    gobuster
+    feh # bg image
   ];
 
   environment.shellAliases = {
@@ -96,6 +102,10 @@
   environment.variables = {
     TERMINAL="alacritty";
   };
+
+
+
+
 
   system.stateVersion = "24.11";
 }
