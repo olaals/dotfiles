@@ -85,7 +85,6 @@
     stow
     john
     sqlmap
-    seclists
     ffuf
     gcc
     nmap
@@ -98,6 +97,7 @@
     gobuster
     samba # smbclient
     feh # bg image
+    evil-winrm
   ];
 
   environment.shellAliases = {
