@@ -1,7 +1,7 @@
 if status is-interactive
 end
 
-set -gx ENVIRONMENT Development
+# set -gx ENVIRONMENT Development
 set -gx FISH_PROFILE default
 
 source $HOME/.config/fish/profiles/default.fish
