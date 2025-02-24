@@ -1,6 +1,6 @@
 function fish_prompt
     # Set profile color
-    set profile_color cyan  # Default color
+    set profile_color cyan # Default color
 
     # Display FISH_PROFILE dynamically
     if test -n "$FISH_PROFILE"
@@ -9,10 +9,18 @@ function fish_prompt
         set profile_indicator ""
     end
 
+    # Display UVSHELL in pink if it is set
+    if test -n "$UVSHELL"
+        set_color yellow
+        echo -n "{$UVSHELL}"
+        set_color normal
+    end
+
     # Display profile, username, and hostname
     set_color blue
     echo -n $profile_indicator(whoami)@(hostname)
     set_color normal
+
 
     # Display full path in yellow
     set_color yellow
