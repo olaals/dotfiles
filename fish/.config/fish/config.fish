@@ -1,6 +1,9 @@
 if status is-interactive
 end
 
+fish_vi_key_bindings
+bind -M insert \cj accept-autosuggestion
+
 # set -gx ENVIRONMENT Development
 set -gx FISH_PROFILE default
 
@@ -39,7 +42,6 @@ git config --global alias.lg "log --graph --pretty=tformat:'%Cred%h%Creset -%C(a
 alias k="kubectl"
 set -gx PATH "$HOME/.cargo/bin" $PATH
 
-bind \cj accept-autosuggestion
 
 set fish_greeting
 
@@ -71,5 +73,3 @@ end
 if not set -q TMUX
     tmux new-session
 end
-
-fish_vi_key_bindings
