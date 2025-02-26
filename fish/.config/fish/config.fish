@@ -15,6 +15,8 @@ set -gx PATH /opt/homebrew/bin $PATH
 
 alias azlogin="env BROWSER='/Applications/Safari.app/Contents/MacOS/Safari' az login"
 
+alias chromium-burp="chromium --proxy-server='http://127.0.0.1:8080' --user-data-dir=(mktemp -d)"
+
 
 # Aliases
 alias openvpn='/opt/homebrew/opt/openvpn/sbin/openvpn'
@@ -66,3 +68,8 @@ end
 # <<< conda initialize <<<
 #
 #
+if not set -q TMUX
+    tmux new-session
+end
+
+fish_vi_key_bindings
