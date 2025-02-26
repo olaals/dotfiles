@@ -2,7 +2,7 @@
   description = "My NixOS configuration with Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; # Keep in sync with nixpkgs

@@ -15,7 +15,7 @@
     10.129.58.26   s3.thetoppers.htb
   '';
 
-  networking.firewall.allowedTCPPorts = [ 9010 9011 ];
+  networking.firewall.allowedTCPPorts = [ 9010 9011 389 1389 8000 ];
 
 
   boot.loader.systemd-boot.enable = true;
@@ -79,6 +79,7 @@
     git
     tmux
     chromium
+    firefox
     uv
     python313
     nodejs_22
@@ -98,6 +99,21 @@
     samba # smbclient
     feh # bg image
     evil-winrm
+    burpsuite
+    xorg.xdpyinfo
+    php
+    wireshark # analyze network layer
+    nssTools
+    gospider
+    metasploit
+    lftp # ftp command
+    unzip
+    sqlite
+    tcpdump
+    jdk23
+    maven
+    docker
+    file
   ];
 
   environment.shellAliases = {
@@ -109,6 +125,7 @@
   };
 
 
+  virtualisation.docker.enable = true;
 
 
 

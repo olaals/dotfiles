@@ -26,6 +26,28 @@
     recursive = true;
   };
 
+  home.file."tools/php-malware-scanner" = {
+    source = pkgs.fetchFromGitHub {
+      owner = "scr34m";
+      repo = "php-malware-scanner";
+      rev = "1.0.27"; # Latest tag as per your request
+      sha256 = "1jhh6rf5m3l0v2rip4yapm3pqc360v89jiikxnmvizi5z6kss7hd"; # Replace with actual hash
+    };
+    recursive = true;
+  };
+
+  home.file."tools/webshells" = {
+    source = pkgs.fetchFromGitHub {
+      owner = "BlackArch";
+      repo = "webshells";
+      rev = "e8e1a37"; # Specific commit
+      sha256 = "1xqic9mzllv86pn2yf26lzzarn7vc5cj5rswqnv64g5cvb06rlbm"; # Replace with actual hash
+    };
+    recursive = true;
+  };
+
+
+
   programs.home-manager.enable = true;
   home.stateVersion = "24.11";
 }
