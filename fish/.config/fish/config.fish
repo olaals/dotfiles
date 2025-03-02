@@ -15,6 +15,8 @@ set -gx PATH $PATH $HOME/projects/cli-tools
 set -gx PATH $PATH $HOME/cli-tools
 set -gx PATH /opt/homebrew/opt/node@16/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
+set -gx SECLISTS $HOME/tools/SecLists
+
 
 alias azlogin="env BROWSER='/Applications/Safari.app/Contents/MacOS/Safari' az login"
 
