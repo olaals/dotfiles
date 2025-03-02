@@ -13,9 +13,21 @@ source $HOME/.config/fish/profiles/default.fish
 set -gx PATH $HOME/bin /usr/local/bin $PATH
 set -gx PATH $PATH $HOME/projects/cli-tools
 set -gx PATH $PATH $HOME/cli-tools
+set -gx PATH $PATH $HOME/tools/cli-tools
 set -gx PATH /opt/homebrew/opt/node@16/bin $PATH
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx SECLISTS $HOME/tools/SecLists
+
+switch (uname)
+    case Darwin
+        echo "Running on Macos"
+        set -gx PATH $PATH $HOME/tools/cli-tools/macos
+    case Linux
+        echo "Running on Linux"
+        set -gx PATH $PATH $HOME/tools/cli-tools/linux
+    case '*'
+        echo "Unknown OS"
+end
 
 
 alias azlogin="env BROWSER='/Applications/Safari.app/Contents/MacOS/Safari' az login"
