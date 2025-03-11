@@ -1,0 +1,22 @@
+name: htb
+root: .
+
+windows:
+  - vpn:
+      panes:
+        - # Starts with a normal shell
+  - notes:
+      layout: main-vertical
+      panes:
+        - vim README.md
+  - mitmproxy:
+      panes:
+        - mitmproxy
+  - fish:
+      panes:
+        - # Starts with a normal shell
+  - reverse:
+      panes:
+        - nc -lvn 9011
+  - serve:
+        - mkdir serve && cd serve && python -m http.server 9010

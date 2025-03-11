@@ -13,9 +13,17 @@
   networking.extraHosts = ''
     10.129.58.26   thetoppers.htb
     10.129.58.26   s3.thetoppers.htb
+    
+    10.10.11.130   internal-administration.goodgames.htb
+    10.10.11.242   devvortex.htb dev.devvortex.htb
+
+    10.10.11.143   office.paper chat.office.paper
+    10.10.11.189   precious.htb
+    10.10.11.11    board.htb crm.board.htb
+    
   '';
 
-  networking.firewall.allowedTCPPorts = [ 9010 9011 389 1389 8000 ];
+  networking.firewall.allowedTCPPorts = [ 9010 9011 389 1389 8000 80 ];
 
 
   boot.loader.systemd-boot.enable = true;
@@ -72,48 +80,63 @@
 
 
   environment.systemPackages = with pkgs; [
+    # GENERAL
     vim
+    git
+    fish
     alacritty
     neovim
     wget
-    git
     tmux
     chromium
     firefox
-    uv
-    python313
     nodejs_22
     stow
+    ripgrep
+    unzip
+    docker
+    tmuxinator
+    xclip
+    xorg.xdpyinfo
+    file
+    gcc
+    feh # bg image
+    # PYTHON
+    uv
+    python312
+    python312Packages.typer
+    python312Packages.requests
+    python312Packages.fastapi
+    python312Packages.cryptography
+    python312Packages.httpx
+    python312Packages.impacket
+    # OFFSEC
+    metasploit
+    openvpn
     john
     sqlmap
     ffuf
-    gcc
     nmap
-    openvpn
-    ripgrep
     awscli
     tcpdump
-    xclip
-    fish
     gobuster
     samba # smbclient
-    feh # bg image
     evil-winrm
     burpsuite
-    xorg.xdpyinfo
     php
     wireshark # analyze network layer
     nssTools
     gospider
-    metasploit
     lftp # ftp command
-    unzip
     sqlite
     tcpdump
     jdk23
     maven
-    docker
-    file
+    hashid
+    exploitdb
+    mitmproxy
+    hurl
+    exiftool
   ];
 
   environment.shellAliases = {
