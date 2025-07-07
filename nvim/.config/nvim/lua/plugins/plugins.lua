@@ -9,7 +9,8 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  {"github/copilot.vim", config = function() require("copilot").setup() end},
+  
+   --k {"github/copilot.vim", config = function() require("copilot").setup() end},
   { "ellisonleao/gruvbox.nvim" },
   { "numToStr/Comment.nvim", config = function() require("Comment").setup() end },
   {

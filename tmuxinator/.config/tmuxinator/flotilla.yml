@@ -1,0 +1,21 @@
+name: flotilla
+root: ~/projects/robotics/
+
+windows:
+  - my-task-board:
+      panes:
+        - cd my-task-board && kanmd .
+  - run-broker:
+      panes:
+        - cd flotilla && docker compose up broker
+  - run-flotilla-frontend:
+      panes:
+        - cd flotilla/frontend && npm run start
+  - run-flotilla-backend:
+      panes:
+        - cd flotilla/backend && dotnet run --project api
+  - run-isar:
+      panes:
+        - cd isar && python main.py
+
+

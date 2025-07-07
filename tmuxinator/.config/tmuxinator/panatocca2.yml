@@ -1,0 +1,20 @@
+# == panatocca.yml ==
+name: snippetstore
+root: ~/projects/snippetstore/projects
+
+windows:
+  - servers:
+      layout: tiled
+      panes:
+        - bash -c "cd pnpm-monorepo/apps/panatocca && pnpm dev"
+        - bash -c "cd farfila-api && uv run uvicorn main:app --reload --env-file envsets/env.development.vars --port 8001 --host 127.0.0.1"
+        - bash -c "cd sam2-api && uv run uvicorn main:app --reload --env-file envsets/env.development.vars --port 8000 --host 127.0.0.1"
+  - panatocca:
+      panes:
+        - cd pnpm-monorepo/apps/panatocca
+  - farfila:
+      panes:
+        - cd farfila-api
+  - sam2api:
+      panes:
+        - cd sam2-api

@@ -58,6 +58,18 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typescript", "typescriptreact" },
+  callback = function()
+    vim.bo.tabstop = 2 -- Number of spaces per Tab
+    vim.bo.softtabstop = 2 -- Inserts 2 spaces when you press Tab
+    vim.bo.shiftwidth = 2 -- Number of spaces per indentation level
+    vim.bo.expandtab = true -- Use spaces instead of tabs
+    vim.bo.smartindent = true -- Makes indentation smarter
+    vim.bo.autoindent = true -- Auto-indent new lines
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePre" }, {
   pattern = "*",
   callback = function()

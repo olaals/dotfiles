@@ -71,6 +71,8 @@ set -Ux LSCOLORS Exfxcxdxbxegedabagacad
 
 
 
+source "$HOME/.local/bin/env.fish"
+
 
 
 

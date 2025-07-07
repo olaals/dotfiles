@@ -1,0 +1,25 @@
+name: snippetstore
+root: ~/projects/snippetstore/projects
+
+windows:
+  - run-docker-compose:
+      panes:
+        - docker compose -f _dev/docker-compose.yaml --project-directory .  up db pgadmin redis farfilaapi.dashboard --build
+  - panatocca:
+      panes:
+        - cd pnpm-monorepo/apps/panatocca && npm run dev
+  - run-farfila:
+      panes:
+        - cd farfila-api-csharp/FarfilaApi
+  - run-sam2-api:
+      panes:
+        - cd sam2-api && uv run uvicorn main:app --reload --env-file envsets/env.development.vars --port 8000 --host 127.0.0.1
+  - panatocca:
+      panes:
+        - cd pnpm-monorepo/apps/panatocca # dev pane for panatocca
+  - dev-farfila:
+      panes:
+        - cd farfila-api-csharp/FarfilaApi
+  - sam2api:
+      panes:
+        - cd sam2-api # dev pane for sam2api
