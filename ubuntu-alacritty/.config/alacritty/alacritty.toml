@@ -13,3 +13,6 @@ foreground = "#d4d4d4"
 program = "/usr/bin/fish"
 args = ["--login"]
 
+[colors.cursor]
+text = "CellBackground"
+cursor = "#ffc743"  # gruvbox yellow
