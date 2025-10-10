@@ -20,10 +20,11 @@ set -gx SECLISTS $HOME/tools/SecLists
 
 switch (uname)
     case Darwin
-        echo "Running on Macos"
+        # echo "Running on Macos"
+        source "$HOME/.local/bin/env.fish"
         set -gx PATH $PATH $HOME/tools/cli-tools/macos
     case Linux
-        echo "Running on Linux"
+        # echo "Running on Linux"
         set -gx PATH $PATH $HOME/tools/cli-tools/linux
     case '*'
         echo "Unknown OS"
@@ -57,6 +58,7 @@ alias k="kubectl"
 set -gx PATH "$HOME/.cargo/bin" $PATH
 
 
+
 set fish_greeting
 
 
@@ -71,9 +73,20 @@ set -Ux LSCOLORS Exfxcxdxbxegedabagacad
 
 
 
-source "$HOME/.local/bin/env.fish"
 
 
+
+if test -d "$HOME/.local/bin"
+    if not contains "$HOME/.local/bin" $PATH
+        set -gx PATH $PATH $HOME/.local/bin
+    end
+end
+
+if test -d "$HOME/apps"
+    if not contains "$HOME/apps" $PATH
+        set -gx PATH $PATH $HOME/apps
+    end
+end
 
 
 
