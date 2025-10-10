@@ -1,7 +1,7 @@
 [window]
-decorations = "full"
 opacity = 0.97
 startup_mode = "Maximized"
+decorations = "none"
 
 [colors.primary]
 background = "#1e1e1e"
@@ -16,3 +16,4 @@ args = ["--login"]
 [colors.cursor]
 text = "CellBackground"
 cursor = "#ffc743"  # gruvbox yellow
+
