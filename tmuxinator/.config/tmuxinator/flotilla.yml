@@ -7,7 +7,7 @@ windows:
         - cd my-task-board && kanmd .
   - run-broker:
       panes:
-        - cd flotilla && docker compose up broker
+        - cd flotilla && docker compose up broker aspire-dashboard
   - run-flotilla-frontend:
       panes:
         - cd flotilla/frontend && npm run start
@@ -17,5 +17,14 @@ windows:
   - run-isar:
       panes:
         - cd isar && python main.py
+  - run-sara:
+      panes:
+        - cd sara/api && dotnet run
+  - robotics-infrastructure:
+      panes:
+        - cd robotics-infrastructure
+  - analytics-infrastructure:
+      panes:
+        - cd analytics-infrastructure
 
 

@@ -20,11 +20,10 @@ set -gx SECLISTS $HOME/tools/SecLists
 
 switch (uname)
     case Darwin
-        # echo "Running on Macos"
-        source "$HOME/.local/bin/env.fish"
+        echo "Running on Macos"
         set -gx PATH $PATH $HOME/tools/cli-tools/macos
     case Linux
-        # echo "Running on Linux"
+        echo "Running on Linux"
         set -gx PATH $PATH $HOME/tools/cli-tools/linux
     case '*'
         echo "Unknown OS"
@@ -53,7 +52,6 @@ end
 git config --global alias.lg "log --graph --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate=full"
 
 alias k="kubectl"
-alias godot-voxel="/Users/OALST/dev/godot-voxel/bin/godot.macos.editor.arm64.mono"
 
 alias startollama='OLLAMA_FLASH_ATTENTION="1" OLLAMA_KV_CACHE_TYPE="q8_0" /opt/homebrew/opt/ollama/bin/ollama serve'
 set -gx PATH "$HOME/.cargo/bin" $PATH
@@ -66,27 +64,7 @@ set -g fish_color_quote white
 
 set -Ux LSCOLORS Exfxcxdxbxegedabagacad
 
-
-
-
-
-
-
-if test -d "$HOME/.local/bin"
-    if not contains "$HOME/.local/bin" $PATH
-        set -gx PATH $PATH $HOME/.local/bin
-    end
-end
-
-if test -d "$HOME/apps"
-    if not contains "$HOME/apps" $PATH
-        set -gx PATH $PATH $HOME/apps
-    end
-end
-
-
-
-
+source "$HOME/.local/bin/env.fish"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -98,9 +76,4 @@ end
 #
 if not set -q TMUX
     tmux new-session
-end
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/OALST/Downloads/google-cloud-sdk/path.fish.inc' ]
-    . '/Users/OALST/Downloads/google-cloud-sdk/path.fish.inc'
 end
