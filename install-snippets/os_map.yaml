@@ -1,0 +1,7 @@
+mappings:
+  "general/**/*": ["all"]
+  "linux/**/*": ["linux", "ubuntu", "debian", "nixos"]
+  "ubuntu/**/*": ["ubuntu"]
+  "ubuntu-*/**/*": ["ubuntu"]
+  "macos-*/**/*": ["darwin"]
+  "nixos/**/*": ["nixos"]
