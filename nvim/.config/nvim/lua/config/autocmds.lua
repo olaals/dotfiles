@@ -2,7 +2,24 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 --
+local function save_current()
+  -- write only if modified; no prompt
+  vim.cmd("silent! update")
+end
+
+local function rust_bin_name_from_path(path)
+  -- works for: .../src/bin/foo.rs or .../src/bin/foo/main.rs
+  local bin = path:match("src/bin/([^/]+)%.rs$")
+  if bin then
+    return bin
+  end
+  bin = path:match("src/bin/([^/]+)/main%.rs$")
+  return bin
+end
+
 function run_script()
+  save_current()
+
   local filetype = vim.bo.filetype
   if filetype == "python" then
     vim.cmd("!python3 %")
@@ -11,7 +28,14 @@ function run_script()
   elseif filetype == "typescript" then
     vim.cmd("!tsc --outdir tscbuild && node tscbuild/index.js %")
   elseif filetype == "rust" then
-    vim.cmd("!cargo run")
+    local path = vim.api.nvim_buf_get_name(0)
+    local bin = rust_bin_name_from_path(path)
+
+    if bin then
+      vim.cmd("!cargo run --bin " .. vim.fn.shellescape(bin))
+    else
+      vim.cmd("!cargo run")
+    end
   end
 end
 

@@ -26,5 +26,9 @@ windows:
   - analytics-infrastructure:
       panes:
         - cd analytics-infrastructure
-
-
+  - sara-thermal-reading:
+      panes:
+        - cd sara-thermal-reading
+  - sara-anonymizer:
+      panes:
+        - cd sara-anonymizer

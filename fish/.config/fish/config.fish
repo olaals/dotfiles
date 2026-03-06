@@ -66,12 +66,6 @@ set -g fish_color_quote white
 
 set -Ux LSCOLORS Exfxcxdxbxegedabagacad
 
-
-
-
-
-
-
 if test -d "$HOME/.local/bin"
     if not contains "$HOME/.local/bin" $PATH
         set -gx PATH $PATH $HOME/.local/bin
@@ -84,18 +78,6 @@ if test -d "$HOME/apps"
     end
 end
 
-
-
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/OALST/miniconda3/bin/conda
-    eval /Users/OALST/miniconda3/bin/conda "shell.fish" hook $argv | source
-end
-# <<< conda initialize <<<
-#
-#
 if not set -q TMUX
     tmux new-session
 end

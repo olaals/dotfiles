@@ -1,7 +1,10 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export --path DYLD_LIBRARY_PATH:/opt/homebrew/opt/llvm/lib
 SETUVAR --export FISH_PROFILE:usd
 SETUVAR --export --path GOPATH:/Users/OALST/go
+SETUVAR --export --path LIBCLANG_PATH:/opt/homebrew/opt/llvm/lib
+SETUVAR --export LLVM_DIR:/opt/homebrew/opt/llvm
 SETUVAR --export LSCOLORS:Exfxcxdxbxegedabagacad
 SETUVAR --export --path PATH:/Users/OALST/\x2egoenv/bin\x1e/Users/OALST/go/bin\x1e/opt/homebrew/bin\x1e/opt/homebrew/opt/node\x4016/bin\x1e/Users/OALST/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e/Applications/iTerm\x2eapp/Contents/Resources/utilities\x1e/Users/OALST/projects/cli\x2dtools
 SETUVAR __fish_initialized:3800

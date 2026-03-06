@@ -1,0 +1,26 @@
+{
+    "leptos_public_component": {
+        "prefix": "snlspcomp",
+        "body": [
+            "#[component]",
+            "pub fn ${1:ComponentName}() -> impl IntoView {",
+            "    view! {",
+            "        $0",
+            "    }",
+            "}"
+        ],
+        "description": "Public Leptos component returning impl IntoView"
+    },
+    "leptos_private_component": {
+        "prefix": "snlscomp",
+        "body": [
+            "#[component]",
+            "fn ${1:ComponentName}() -> impl IntoView {",
+            "    view! {",
+            "        $0",
+            "    }",
+            "}"
+        ],
+        "description": "Private Leptos component returning impl IntoView"
+    }
+}

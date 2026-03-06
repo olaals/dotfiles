@@ -1,0 +1,19 @@
+{
+    "html_tag_pair": {
+        "prefix": "sntag",
+        "body": [
+            "<${1:div}>",
+            "  $0",
+            "</${1}>"
+        ],
+        "description": "Generic HTML opening/closing tag"
+    },
+
+    "html_self_closing_tag": {
+        "prefix": "snsctag",
+        "body": [
+            "<${1:div} />"
+        ],
+        "description": "Self-closing HTML tag"
+    }
+}

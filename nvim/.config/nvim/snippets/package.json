@@ -1,0 +1,19 @@
+{
+    "name": "user-snippets",
+    "contributes": {
+        "snippets": [
+            {
+                "language": "html",
+                "path": "./html.json"
+            },
+            {
+                "language": "rust",
+                "path": "./html.json"
+            },
+            {
+                "language": "rust",
+                "path": "./rust.json"
+            }
+        ]
+    }
+}
