@@ -36,6 +36,10 @@ function run_script()
     else
       vim.cmd("!cargo run")
     end
+  elseif filetype == "cuda" or vim.fn.expand("%:e") == "cu" then
+    local path = vim.fn.expand("%:p")
+    local out = vim.fn.expand("%:p:r")
+    vim.cmd("!nvcc " .. vim.fn.shellescape(path) .. " -o " .. vim.fn.shellescape(out) .. " && " .. vim.fn.shellescape(out))
   end
 end
 
@@ -90,6 +94,18 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.shiftwidth = 2 -- Number of spaces per indentation level
     vim.bo.expandtab = true -- Use spaces instead of tabs
     vim.bo.smartindent = true -- Makes indentation smarter
+    vim.bo.autoindent = true -- Auto-indent new lines
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "cuda",
+  callback = function()
+    vim.bo.tabstop = 4 -- Number of spaces per Tab
+    vim.bo.softtabstop = 4 -- Inserts 4 spaces when you press Tab
+    vim.bo.shiftwidth = 4 -- Number of spaces per indentation level
+    vim.bo.expandtab = true -- Use spaces instead of tabs
+    vim.bo.cindent = true -- Makes C-style indentation smarter
     vim.bo.autoindent = true -- Auto-indent new lines
   end,
 })
