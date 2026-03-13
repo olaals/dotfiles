@@ -21,10 +21,15 @@ set -gx SECLISTS $HOME/tools/SecLists
 switch (uname)
     case Darwin
         # echo "Running on Macos"
-        source "$HOME/.local/bin/env.fish"
+        if test -f "$HOME/.local/bin/env.fish"
+            source "$HOME/.local/bin/env.fish"
+        end
         set -gx PATH $PATH $HOME/tools/cli-tools/macos
     case Linux
         # echo "Running on Linux"
+        if test -f "$HOME/.local/bin/env.fish"
+            source "$HOME/.local/bin/env.fish"
+        end
         set -gx PATH $PATH $HOME/tools/cli-tools/linux
     case '*'
         echo "Unknown OS"
