@@ -1,0 +1,79 @@
+{
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "jupyter.interactiveWindow.creationMode": "perFile",
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#F4B400"
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "storage.type.function.vim",
+                    "meta.function-call.vim",
+                    "entity.name.function.vim"
+                ],
+                "settings": {
+                    "foreground": "#ffff00"
+                }
+            }
+        ]
+    },
+    "editor.accessibilitySupport": "off",
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "vim.useCtrlKeys": false,
+    "editor.minimap.enabled": false,
+    "workbench.editor.showTabs": "single",
+    "azure.resourceFilter": [
+        "3aa4a235-b6e2-48d5-9195-7fcf05b459b0/7be5c910-a81e-472d-9070-6aaf07b753cc"
+    ],
+    "tabnine.experimentalAutoImports": true,
+    "breadcrumbs.enabled": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "git.openRepositoryInParentFolders": "never",
+    "update.showReleaseNotes": false,
+    "chat.tools.terminal.autoApprove": {
+        "cargo test": true,
+        "cargo build": true,
+        "cargo check": true,
+        "mypy": true,
+        "cargo leptos": true,
+        "/^make test-integration$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^uv run pytest src/tests/integration$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^uv run pytest src/tests/unit$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    },
+    "chat.agent.maxRequests": 50,
+    "chat.viewSessions.orientation": "stacked"
+}
