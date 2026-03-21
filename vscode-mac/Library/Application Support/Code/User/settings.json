@@ -1,5 +1,23 @@
 {
     "vim.normalModeKeyBindingsNonRecursive": [
+            {
+            "before": ["<Tab>"],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": ["<S-Tab>"],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": ["<space>", "b", "d"],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
         {
             "before": [
                 "<space>",
@@ -81,7 +99,6 @@
     },
     "editor.minimap.enabled": false,
     "editor.lineNumbers": "relative",
-    "workbench.editor.showTabs": "single",
     "azure.resourceFilter": [
         "3aa4a235-b6e2-48d5-9195-7fcf05b459b0/7be5c910-a81e-472d-9070-6aaf07b753cc"
     ],
@@ -111,6 +128,6 @@
     },
     "chat.agent.maxRequests": 50,
     "chat.viewSessions.orientation": "stacked",
-    "workbench.statusBar.visible": false,
-    "workbench.activityBar.location": "top"
+    "workbench.activityBar.location": "top",
+    "workbench.statusBar.visible": false
 }
