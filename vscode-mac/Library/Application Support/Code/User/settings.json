@@ -45,6 +45,25 @@
             "commands": [
                 "workbench.action.quickOpen"
             ]
+        },
+        {
+            "before": [":"],
+            "after": [":"],
+            "commands": [
+                "workbench.action.toggleStatusbarVisibility"
+            ]
+        }
+    ],
+    "vim.commandLineModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<CR>"],
+            "after": ["<CR>"],
+            "commands": ["workbench.action.toggleStatusbarVisibility"]
+        },
+        {
+            "before": ["<Esc>"],
+            "after": ["<Esc>"],
+            "commands": ["workbench.action.toggleStatusbarVisibility"]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
