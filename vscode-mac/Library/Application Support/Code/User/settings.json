@@ -52,6 +52,15 @@
             "commands": [
                 "workbench.action.toggleStatusbarVisibility"
             ]
+        },
+        {
+            "before": [
+                "<space>",
+                "/"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
         }
     ],
     "vim.commandLineModeKeyBindingsNonRecursive": [
@@ -74,6 +83,15 @@
             ],
             "commands": [
                 "workbench.action.chat.open"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "/"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
             ]
         }
     ],

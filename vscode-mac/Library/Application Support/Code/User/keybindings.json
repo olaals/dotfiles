@@ -6,9 +6,38 @@
         "when": "editorTextFocus" 
     },
     {
+        "key": "cmd+e",
+        "command": "-actions.findWithSelection"
+    },
+    {
+        "key": "cmd+e",
+        "command": "-editor.actions.findWithSelection"
+    },
+    {
+        "key": "cmd+e",
+        "command": "-editor.action.nextMatchFindAction"
+    },
+    {
+        "key": "cmd+e",
+        "command": "-workbench.action.findInFiles"
+    },
+    {
+        "key": "cmd+e",
+        "command": "-actions.find"
+    },
+    {
+        "key": "cmd+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
     "key": "cmd+e",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "!editorFocus"
+    "when": "!editorFocus && !searchViewletFocus"
+    },
+    {
+        "key": "cmd+e",
+        "command": "workbench.action.closeSidebar",
+        "when": "searchViewletFocus"
     },
     {
         "key": "space e",
@@ -90,5 +119,15 @@
         "key": "enter",
         "command": "-renameFile",
         "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "shift+a",
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus && !inputFocus"
     }
 ]
