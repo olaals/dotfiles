@@ -105,6 +105,11 @@
         "command": "-workbench.action.togglePanel"
     },
     {
+        "key": "ctrl+j",
+        "command": "editor.action.inlineSuggest.commit",
+        "when": "inlineSuggestionVisible"
+    },
+    {
         "key": "ctrl+shift+alt+cmd+t",
         "command": "commandId",
     },
