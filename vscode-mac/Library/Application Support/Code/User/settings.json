@@ -3,10 +3,40 @@
         {
             "before": [
                 "<space>",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.chat.open"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
                 "e"
             ],
             "commands": [
-                "workbench.action.toggleSidebarVisibility"
+                "workbench.files.action.focusFilesExplorer"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<space>",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.chat.open"
             ]
         }
     ],
@@ -45,7 +75,12 @@
     "editor.accessibilitySupport": "off",
     "workbench.colorTheme": "Gruvbox Dark Medium",
     "vim.useCtrlKeys": false,
+    "vim.handleKeys": {
+        "<C-o>": true,
+        "<C-i>": true
+    },
     "editor.minimap.enabled": false,
+    "editor.lineNumbers": "relative",
     "workbench.editor.showTabs": "single",
     "azure.resourceFilter": [
         "3aa4a235-b6e2-48d5-9195-7fcf05b459b0/7be5c910-a81e-472d-9070-6aaf07b753cc"
@@ -75,5 +110,7 @@
         }
     },
     "chat.agent.maxRequests": 50,
-    "chat.viewSessions.orientation": "stacked"
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.statusBar.visible": false,
+    "workbench.activityBar.location": "top"
 }
