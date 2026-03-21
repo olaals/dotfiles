@@ -1,4 +1,5 @@
 {
+    "files.autoSave": "afterDelay",
     "vim.normalModeKeyBindingsNonRecursive": [
             {
             "before": ["<Tab>"],
@@ -171,6 +172,7 @@
         ]
     },
     "editor.accessibilitySupport": "off",
+    "terminal.integrated.allowChords": false,
     "workbench.colorTheme": "Gruvbox Dark Medium",
     "vim.useCtrlKeys": false,
     "vim.handleKeys": {
@@ -213,15 +215,11 @@
     "vim.useSystemClipboard": true,
     "workbench.activityBar.location": "bottom",
     "terminal.integrated.profiles.osx": {
-        "fish-tmux": {
-            "path": "fish",
-            "args": [
-                "-c",
-                "tmux new-session -A -s vscode"
-            ]
+        "fish": {
+            "path": "/opt/homebrew/bin/fish"
         }
     },
-    "terminal.integrated.defaultProfile.osx": "fish-tmux",
+    "terminal.integrated.defaultProfile.osx": "fish",
     "settings.cycle": [
         {
             "id": "statusBarShow",
@@ -238,5 +236,11 @@
             ]
         }
     ],
-    "workbench.statusBar.visible": true
+    "workbench.statusBar.visible": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }
