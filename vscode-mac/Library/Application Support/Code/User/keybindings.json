@@ -151,5 +151,9 @@
         "key": "ctrl+space",
         "command": "-editor.action.triggerSuggest",
         "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+shift+b",
+        "command": "workbench.action.toggleStatusbarVisibility"
     }
 ]
