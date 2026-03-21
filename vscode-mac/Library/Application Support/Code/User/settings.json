@@ -166,5 +166,8 @@
     "chat.agent.maxRequests": 50,
     "chat.viewSessions.orientation": "stacked",
     "workbench.activityBar.location": "top",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "vim.useSystemClipboard": true,
     "workbench.statusBar.visible": false
 }

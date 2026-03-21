@@ -1,6 +1,11 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
+  {
+    "key": "cmd+shift+a",
+    "command": "workbench.action.chat.toggle"
+  } ,
     {
+
         "key": "cmd+a",
         "command": "workbench.action.chat.open",
         "when": "editorTextFocus" 
