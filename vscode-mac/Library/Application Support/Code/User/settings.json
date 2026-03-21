@@ -236,11 +236,11 @@
             ]
         }
     ],
-    "workbench.statusBar.visible": false,
     "github.copilot.enable": {
         "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false
-    }
+    },
+    "workbench.statusBar.visible": false
 }
