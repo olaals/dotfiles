@@ -21,10 +21,21 @@
         {
             "before": [
                 "<space>",
+                "c",
                 "c"
             ],
             "commands": [
                 "workbench.action.chat.open"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "c",
+                "e"
+            ],
+            "commands": [
+                "copyErrorAtCursor"
             ]
         },
         {
@@ -50,7 +61,7 @@
             "before": [":"],
             "after": [":"],
             "commands": [
-                "workbench.action.toggleStatusbarVisibility"
+                "settings.cycle.statusBarShow"
             ]
         },
         {
@@ -61,28 +72,60 @@
             "commands": [
                 "workbench.action.findInFiles"
             ]
+        },
+        {
+            "before": [
+                ":",
+                "J",
+                "<CR>"
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": {
+                        "text": "\u001b[A\u000d"
+                    }
+                },
+                "workbench.action.focusActiveEditorGroup"
+            ]
         }
     ],
     "vim.commandLineModeKeyBindingsNonRecursive": [
         {
             "before": ["<CR>"],
             "after": ["<CR>"],
-            "commands": ["workbench.action.toggleStatusbarVisibility"]
+            "commands": ["settings.cycle.statusBarHide"]
         },
         {
             "before": ["<Esc>"],
             "after": ["<Esc>"],
-            "commands": ["workbench.action.toggleStatusbarVisibility"]
+            "commands": ["settings.cycle.statusBarHide"]
+        },
+        {
+            "before": ["<C-c>"],
+            "after": ["<C-c>"],
+            "commands": ["settings.cycle.statusBarHide"]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "<space>",
+                "c",
                 "c"
             ],
             "commands": [
                 "workbench.action.chat.open"
+            ]
+        },
+        {
+            "before": [
+                "<space>",
+                "c",
+                "e"
+            ],
+            "commands": [
+                "copyErrorAtCursor"
             ]
         },
         {
@@ -165,9 +208,35 @@
     },
     "chat.agent.maxRequests": 50,
     "chat.viewSessions.orientation": "stacked",
-    "workbench.activityBar.location": "top",
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "vim.useSystemClipboard": true,
-    "workbench.statusBar.visible": false
+    "workbench.activityBar.location": "bottom",
+    "terminal.integrated.profiles.osx": {
+        "fish-tmux": {
+            "path": "fish",
+            "args": [
+                "-c",
+                "tmux new-session -A -s vscode"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "fish-tmux",
+    "settings.cycle": [
+        {
+            "id": "statusBarShow",
+            "overrideWorkspaceSettings": false,
+            "values": [
+                { "workbench.statusBar.visible": true }
+            ]
+        },
+        {
+            "id": "statusBarHide",
+            "overrideWorkspaceSettings": false,
+            "values": [
+                { "workbench.statusBar.visible": false }
+            ]
+        }
+    ],
+    "workbench.statusBar.visible": true
 }
