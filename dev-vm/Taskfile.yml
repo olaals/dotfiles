@@ -1,0 +1,68 @@
+version: "3"
+
+vars:
+  SSH_KEY: ~/.ssh/dev-vm
+  ADMIN_USER: oalstdevvm
+
+tasks:
+  login:
+    desc: Log in to Azure (opens Google Chrome)
+    cmd: BROWSER="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" az login
+
+  set-sub:
+    desc: Write the current Azure subscription ID into subscription.auto.tfvars
+    cmds:
+      - |
+        SUB_ID=$(az account show --query id -o tsv)
+        if [ -z "$SUB_ID" ]; then
+          echo "Error: not logged in. Run 'task login' first."
+          exit 1
+        fi
+        echo "subscription_id = \"$SUB_ID\"" > infra/subscription.auto.tfvars
+        echo "Set subscription_id = $SUB_ID in infra/subscription.auto.tfvars"
+
+  init:
+    desc: Initialize Terraform
+    cmd: terraform -chdir=infra init
+
+  deploy:
+    desc: Deploy the VM (runs init + plan + apply with confirmation)
+    interactive: true
+    cmds:
+      - task: init
+      - terraform -chdir=infra apply
+
+  teardown:
+    desc: Destroy all Azure resources and remove local Terraform state
+    interactive: true
+    prompt: This will destroy ALL resources and delete local state. Continue?
+    cmds:
+      - terraform -chdir=infra destroy
+      - rm -rf infra/.terraform/ infra/.terraform.lock.hcl infra/*.tfstate infra/*.tfstate.backup
+
+  connect:
+    desc: SSH into the dev VM
+    interactive: true
+    cmd: ssh -i {{.SSH_KEY}} {{.ADMIN_USER}}@$(terraform -chdir=infra output -raw public_ip)
+
+  spot-price:
+    desc: Check current spot price for the VM size in swedencentral
+    cmd: >-
+      curl -s 'https://prices.azure.com/api/retail/prices?$filter=armSkuName%20eq%20%27Standard_NV36ads_A10_v5%27%20and%20armRegionName%20eq%20%27swedencentral%27%20and%20priceType%20eq%20%27Consumption%27%20and%20contains(skuName,%20%27Spot%27)'
+      | jq -r '.Items[] | (if (.productName | contains("Windows")) then "Windows" else "Linux" end) + ": $" + (.retailPrice | tostring) + "/hr"'
+
+  ip:
+    desc: Show the VM's public IP
+    cmd: terraform -chdir=infra output -raw public_ip && echo
+
+  cloud-init-log:
+    desc: Fetch the cloud-init output log from the VM
+    cmd: "ssh -i {{.SSH_KEY}} {{.ADMIN_USER}}@$(terraform -chdir=infra output -raw public_ip) 'sudo cat /var/log/cloud-init-output.log'"
+
+  cloud-init-status:
+    desc: Show cloud-init status and the user-data the VM received
+    cmd: "ssh -i {{.SSH_KEY}} {{.ADMIN_USER}}@$(terraform -chdir=infra output -raw public_ip) 'sudo cloud-init status --long && echo --- user-data --- && sudo cat /var/lib/cloud/instance/user-data.txt'"
+
+  ssh-cmd:
+    desc: "Run an arbitrary command on the VM (usage: task ssh-cmd -- 'command')"
+    cmd: "ssh -i {{.SSH_KEY}} {{.ADMIN_USER}}@$(terraform -chdir=infra output -raw public_ip) '{{.CLI_ARGS}}'"
